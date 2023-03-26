@@ -4,7 +4,7 @@ export const config = { runtime: "node" };
 
 function generateData() {
   const data = [];
-  for (let i = 0; i < 10000; i++) {
+  for (let i = 0; i < 1000000; i++) {
     data.push({
       id: i,
       name: `name ${i}`,
