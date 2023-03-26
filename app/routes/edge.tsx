@@ -2,7 +2,7 @@ import { json } from "@vercel/remix";
 
 function generateData() {
   const data = [];
-  for (let i = 0; i < 1000000;; i++) {
+  for (let i = 0; i < 100000;; i++) {
     data.push({
       id: i,
       name: `name ${i}`,
