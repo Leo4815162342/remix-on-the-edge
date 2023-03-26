@@ -2,6 +2,18 @@ import { json } from "@vercel/remix";
 
 export const config = { runtime: "node" };
 
+function generateData() {
+  const data = [];
+  for (let i = 0; i < 10000; i++) {
+    data.push({
+      id: i,
+      name: `name ${i}`,
+      email: `email ${i}`,
+    });
+  }
+  return data;
+}
+
 // This `loader` now runs as an Edge Function
 //@ts-expect-error
 export async function loader({ request }) {
@@ -9,5 +21,5 @@ export async function loader({ request }) {
   // including powerful geolocation headers added by Vercel
   const city = request.headers.get("x-vercel-ip-city");
 
-  return json({ city });
+  return json({ city, data: generateData() });
 }
